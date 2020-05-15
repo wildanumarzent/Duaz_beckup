@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\disk;
+use App\Disk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 

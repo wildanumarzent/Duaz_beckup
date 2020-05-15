@@ -65,7 +65,7 @@
                                     </a>
                                 </div>
                             </div>
-                             <form method="post" action="/user">
+                             <form method="post" action="{{ url('/user') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="Nama">Nama</label>

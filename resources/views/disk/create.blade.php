@@ -65,7 +65,7 @@
                                     </a>
                                 </div>
                             </div>
-                             <form method="post" action="/disk/">
+                             <form method="post" action="{{url('/disk')}}">
                             @csrf
                             <div class="form-group">
                                 <label for="Nama">Name</label>
