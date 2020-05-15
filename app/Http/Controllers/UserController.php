@@ -38,11 +38,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user=new User;
-        // $request->validate([
-        //         'name'=>'required',
-        //         'email'=>'sometimes|required|email|unique:users',
-        //         'password'=>'required|size:9'
-        //     ]);
+        $request->validate([
+                'name'=>'required',
+                'email'=>'sometimes|required|email|unique:users',
+                'password'=>'required|size:9'
+            ]);
         // User::create($request->all());
        
           $user=User::create([
@@ -106,7 +106,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-         User::destroy($user->id);
+        User::destroy($user->id);
         return redirect('/user')->with('status', 'Data user Berhasil di Hapus!');
     }
 }

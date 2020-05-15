@@ -69,7 +69,7 @@
                     <div class="collapse" id="filesystem">
                         <ul class="nav nav-collapse">
                             <li class="{{ $lastUrl == 'disk' ?? 'active' }}">
-                                <a href="#">
+                                <a href="{{ url('/disk') }}">
                                     <span class="sub-item">Disk</span>
                                 </a>
                             </li>

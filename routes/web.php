@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('user','UserController');
-// Route::get('/user', 'usersController@index');
-// Route::get('/user/create', 'usersController@create');
-// Route::get('/user/{user}/edit', 'usersController@edit')->name('edit');
+Route::resource('disk','diskController');
+
 
 Auth::routes();
 

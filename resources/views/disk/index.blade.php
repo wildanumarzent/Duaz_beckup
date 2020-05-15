@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-head-row">
-                                <div class="card-title"> diaz_backup Data Users</div>
+                                <div class="card-title"> Data Disk</div>
                                 <div class="card-tools">
                                     <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
                                         <span class="btn-label">
@@ -65,7 +65,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <a href=" {{ url('/user/create' )}}" class="btn btn-primary my-3">Add User </a>
+                            <a href=" {{ url('/disk/create' )}}" class="btn btn-primary my-3">Add Disk </a>
                         </div>
                          @if (session('status'))
                             <div class="alert alert-success" style="color:green">
@@ -73,32 +73,37 @@
                             </div>
                         @endif
                          <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">nama</>
-                                    <th scope="col">Email</th>
-                                 
-                                   <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($user as $usr)
-                                    <tr>
-                                    <td>{{ $usr->name }}</td>
-                                    <td>{{ $usr->email }}</td>
-                                    
-                                    <td>
-                                    <!-- <a href="/user/{{ $usr->id }}/edit" class="badge badge-success">Edit</a> -->
-                                        <form action="/user/{{$usr->id}}" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button href="" onclick="return confirm('apakah anda yakin ingin menghapus data user')" class="badge badge-danger">Hapus</button>
-                                        </form>
-                                    </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                                </table>
+                            <thead>
+                                <tr>
+                                <th scope="col">Name</>
+                                <th scope="col">Host</th>
+                                <th scope="col">username</th>
+                                <th scope="col">port</th>
+                                <th scope="col">path</th>
+                                <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($disk as $disk_)
+                                <tr>
+                                <td>{{ $disk_->name }}</td>
+                                <td>{{ $disk_->host }}</td>
+                                <td>{{ $disk_->username }}</td>
+                                <td>{{ $disk_->port }}</td>
+                                <td>{{ $disk_->path }}</td>
+
+                                <td>
+                            
+                                    <form action="/disk/{{$disk_->id}}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button href="" onclick="return confirm('apakah anda yakin ingin menghapus data disk')" class="badge badge-danger">Hapus</button>
+                                    </form>
+                                </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                         <div class="card-body">
                             <div class="chart-container" style="min-height: 375px">
                                 <canvas id="statisticsChart"></canvas>
