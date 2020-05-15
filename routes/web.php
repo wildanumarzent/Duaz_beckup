@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('user','UserController');
-Route::resource('disk','diskController');
+Route::resource('disk','DiskController');
 
 
 Auth::routes();
