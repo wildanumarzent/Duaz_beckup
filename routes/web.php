@@ -14,27 +14,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::resource('user','UserController');
-Route::resource('disk','DiskController');
+
+
 
 
 Auth::routes();
 
+	
+
 Route::group(['middleware' => ['auth', 'web']], function () {
 	Route::get('/', 'HomeController@index')->name('home');
+	Route::resource('user','UserController');
+	Route::resource('disk','DiskController');
 
 	/* user management */
 	Route::prefix('user-management')->group(function () {
 		Route::get('/user/ajaxDatatable', 'UserManagement\UserController@ajaxDatatable')->name('user.ajaxDatatable');
-		Route::resource('user', 'UserManagement\UserController', ['names' => 'user']);
+		// Route::resource('user', 'UserManagement\UserController', ['names' => 'user']);
 		
 	});
 
 	/* Filesystem */
 	Route::prefix('filesystem')->group(function () {
 		Route::get('/disk/ajaxDatatable', 'Filesystem\DiskController@ajaxDatatable')->name('disk.ajaxDatatable');
-		Route::resource('disk', 'Filesystem\DiskController', ['names' => 'disk']);
+		// Route::resource('disk', 'Filesystem\DiskController', ['names' => 'disk']);
 
 		Route::get('/file-manager', 'Filesystem\FileManagerController@index')->name('file-manager.index');
 	});

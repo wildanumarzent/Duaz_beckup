@@ -65,7 +65,8 @@
                                     </a>
                                 </div>
                             </div>
-                             <form method="post" action="{{ url('/user') }}">
+                        </div>
+                        <form method="post" action="{{ url('/user') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="Nama">Nama</label>
@@ -97,8 +98,8 @@
                            
                                 
                             <button type="submit" class="btn btn-primary ">Add User</button>
-                        </form>
-                        </div>
+                            </form>
+                            
                         <div class="card-body">
                             <div class="chart-container" style="min-height: 375px">
                                 <canvas id="statisticsChart"></canvas>
